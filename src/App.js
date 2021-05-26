@@ -1,24 +1,21 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import data from './data';
+import List from './List';
 import './App.css';
 
-function App() {
+
+
+const App = () => {
+
+  const [aspect, setAspect] = useState(data);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main> 
+      <section className = 'container'>
+        <h3>{aspect.length} aspects of football</h3>
+        <List aspect={aspect}/>
+        <button onClick={() => setAspect([])} >Clear Aspects</button>
+      </section>
+    </main> 
   );
 }
 
